@@ -1,12 +1,17 @@
 import React from 'react'
-import Navbar from "react-bootstrap/Navbar";
-import {Col, Row} from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import {Col} from "react-bootstrap";
 
-export default function Padding() {
+export default function Footing() {
     return (
         <>
-            <br/><br/><br/>
+            <Col>
+                <div>Generic User Login React Portal - Jonathan Leahy</div>
+                <br/>
+                <div>Icons made by <a href="https://www.flaticon.com/authors/freepik"
+                                      title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"
+                                                                          title="Flaticon">www.flaticon.com</a>
+                </div>
+            </Col>
         </>
     )
 }

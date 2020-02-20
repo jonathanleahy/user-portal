@@ -36,6 +36,9 @@ npm run dev
 Make sure this is running on localhost port 3333 first
 https://github.com/dantame/interview-authentication-service
 
+## Some Redux Hooks information was taken from here:
+
+https://levelup.gitconnected.com/react-redux-hooks-useselector-and-usedispatch-f7d8c7f75cdd
 
 ## Boilerplate
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

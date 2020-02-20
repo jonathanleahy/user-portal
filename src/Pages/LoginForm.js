@@ -4,18 +4,29 @@ import {Button, Form} from "react-bootstrap";
 import allActions from "../actions";
 import {useDispatch} from 'react-redux'
 import {useHistory} from "react-router";
+import * as axios from "axios";
 
 export const LoginForm = () => {
 
     const dispatch = useDispatch()
 
-    const user = {name: "Jon Leahy"}
-
     let history = useHistory();
 
     const onSubmit = async values => {
-        dispatch(allActions.userActions.setUser(user))
-        history.push('/dashboard')
+
+        const result = await axios.post(
+            'http://localhost:3333/login', {
+                username: values.email,
+                password: values.password
+            }
+        );
+
+        if (result.data) {
+            const user = {name: values.email}
+            dispatch(allActions.userActions.setUser(user))
+            history.push('/dashboard')
+        }
+
     }
 
     const validate = values => {
@@ -39,8 +50,8 @@ export const LoginForm = () => {
         <>
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="text" {...email.input} placeholder="Enter email"/>
+                    <Form.Label>Email Username</Form.Label>
+                    <Form.Control type="text" {...email.input} placeholder="Enter Username"/>
                     {email.meta.touched && email.meta.error && (
                         <Form.Text className="text-muted">
                             {email.meta.error}

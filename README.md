@@ -15,6 +15,8 @@ The user stories we have identified so far are:
 2. As a user, I would like to view a personalised greeting when I log in so that I know I’m
 logged in
 3. As a user, I would like to be able to log out of the application
+
+
 Rules
 
 There are no rules to how you write your code and no trick questions! Treat this like you

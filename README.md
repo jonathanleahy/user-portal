@@ -11,11 +11,11 @@ A user authentication service has recently been developed
 integrate with it.
 
 The user stories we have identified so far are:
+
 1. As a user, I would like to be able to log in to the web application
 2. As a user, I would like to view a personalised greeting when I log in so that I know I’m
 logged in
 3. As a user, I would like to be able to log out of the application
-
 
 Rules
 
@@ -25,7 +25,7 @@ programming language, libraries or framework you wish.
 
 ## To Clone:
 
-git clone  
+git clone https://github.com/jonathanleahy/user-portal.git
 
 ## To Install:
 

@@ -13,6 +13,8 @@ import {Provider} from 'react-redux';
 import {createStore} from 'redux'
 import rootReducer from './reducers'
 import Dashboard from "./Pages/Dashboard";
+import 'react-toastify/dist/ReactToastify.css';
+import {ToastContainer} from "react-toastify";
 
 const store = createStore(
     rootReducer,
@@ -21,21 +23,22 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-    <Router>
-        <div>
-            <Switch>
-                <Route exact path="/">
-                    <App/>
-                </Route>
-                <Route path="/login">
-                    <Login/>
-                </Route>
-                <Route path="/dashboard">
-                    <Dashboard/>
-                </Route>
-            </Switch>
-        </div>
-    </Router>
+        <ToastContainer/>
+        <Router>
+            <div>
+                <Switch>
+                    <Route exact path="/">
+                        <App/>
+                    </Route>
+                    <Route path="/login">
+                        <Login/>
+                    </Route>
+                    <Route path="/dashboard">
+                        <Dashboard/>
+                    </Route>
+                </Switch>
+            </div>
+        </Router>
     </Provider>
 
     , document.getElementById('root'));

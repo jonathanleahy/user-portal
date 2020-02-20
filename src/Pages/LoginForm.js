@@ -5,6 +5,7 @@ import allActions from "../actions";
 import {useDispatch} from 'react-redux'
 import {useHistory} from "react-router";
 import * as axios from "axios";
+import {toast} from "react-toastify";
 
 export const LoginForm = () => {
 
@@ -14,18 +15,25 @@ export const LoginForm = () => {
 
     const onSubmit = async values => {
 
-        const result = await axios.post(
-            'http://localhost:3333/login', {
-                username: values.email,
-                password: values.password
+        try {
+            const result = await axios.post(
+                'http://localhost:3333/login', {
+                    username: values.email,
+                    password: values.password
+                }
+            );
+            if (result.data) {
+                const user = {name: values.email}
+                dispatch(allActions.userActions.setUser(user))
+                toast("Logged in!");
+                history.push('/dashboard')
+            } else {
             }
-        );
-
-        if (result.data) {
-            const user = {name: values.email}
-            dispatch(allActions.userActions.setUser(user))
-            history.push('/dashboard')
+        } catch (e) {
+            toast("Couldn't login you in !");
         }
+
+
 
     }
 

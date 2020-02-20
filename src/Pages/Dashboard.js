@@ -26,6 +26,8 @@ function Dashboard() {
                     <Row><Padding/></Row>
                     <Row>
                         <Col>
+                            We don't store the JWT in localhost as this is a security risk.<br/><br/>
+                            When you refresh the page you will realise the user details are lost and you will have to login again.<br/><br/>
                             Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth
                             water
                             spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion

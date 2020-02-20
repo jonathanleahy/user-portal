@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux'
 import allActions from "../actions";
 import {useHistory} from "react-router";
+import {toast} from "react-toastify";
 
 export default function NaviBar() {
 
@@ -31,7 +32,7 @@ export default function NaviBar() {
                 {currentUser.loggedIn ?
                     <>
                         <Link to="/dashboard">
-                            <Navbar.Brand href="dashboard">
+                            <Navbar.Brand>
                                 <img
                                     width={30}
                                     height={30}
@@ -48,12 +49,12 @@ export default function NaviBar() {
                     {
                         currentUser.loggedIn ?
                             <>
-                                <Navbar.Text>
-                                    Signed in as: <a href="#login">{currentUser.user.name}</a>&nbsp;
-                                </Navbar.Text>
+                                Signed in as: {currentUser.user.name}&nbsp;
                                 <Button variant="outline-primary"
                                         onClick={() => {
+                                            sessionStorage.setItem('token', {})
                                             dispatch(allActions.userActions.logOut());
+                                            toast(`You are now Logged out!`);
                                             history.push('/')
                                         }}>Logout</Button>
                             </>

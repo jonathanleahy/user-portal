@@ -7,8 +7,24 @@ import Hero from "./Components/Hero";
 import Padding from "./Components/Padding";
 import Footing from "./Components/Footing";
 import MediaBlock from "./Components/MediaBlock";
+import allActions from "./actions";
+import {useDispatch} from 'react-redux'
+var jwtDecode = require('jwt-decode');
 
 function App() {
+
+    const dispatch = useDispatch()
+
+    const token = (sessionStorage.getItem('token'));
+
+    try {
+        var decoded = jwtDecode(token);
+        const user = {name: decoded.user.name}
+        dispatch(allActions.userActions.setUser(user))
+    } catch (e) {
+
+    }
+
     return (
         <div className="App-header">
             <Container>

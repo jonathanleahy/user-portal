@@ -6,6 +6,7 @@ import {useDispatch} from 'react-redux'
 import {useHistory} from "react-router";
 import * as axios from "axios";
 import {toast} from "react-toastify";
+var jwtDecode = require('jwt-decode');
 
 export const LoginForm = () => {
 
@@ -23,17 +24,17 @@ export const LoginForm = () => {
                 }
             );
             if (result.data) {
-                const user = {name: values.email}
+                sessionStorage.setItem('token', (result.data.token))
+                let decoded = jwtDecode(result.data.token);
+                const user = {name: decoded.user.name}
                 dispatch(allActions.userActions.setUser(user))
-                toast("Logged in!");
+                toast(`Welcome ${user.name}, you are now Logged in!`);
                 history.push('/dashboard')
             } else {
             }
         } catch (e) {
             toast("Couldn't login you in !");
         }
-
-
 
     }
 

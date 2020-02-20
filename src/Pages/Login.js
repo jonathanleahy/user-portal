@@ -3,11 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Col, Container, Row} from "react-bootstrap";
 import Padding from "../Components/Padding";
 import {LoginForm} from "./LoginForm";
+import NaviBar from "../Components/NaviBar";
 
 function Login() {
     return (
         <div className="App-header">
             <Container>
+                <Row>
+                    <Col><NaviBar/></Col>
+                </Row>
                 <Row>
                     <Padding/>
                 </Row>

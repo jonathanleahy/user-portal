@@ -9,8 +9,18 @@ import {
     Route,
     Switch
 } from 'react-router-dom'
+import {Provider} from 'react-redux';
+import {createStore} from 'redux'
+import rootReducer from './reducers'
+import Dashboard from "./Pages/Dashboard";
+
+const store = createStore(
+    rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 ReactDOM.render(
+    <Provider store={store}>
     <Router>
         <div>
             <Switch>
@@ -20,9 +30,13 @@ ReactDOM.render(
                 <Route path="/login">
                     <Login/>
                 </Route>
+                <Route path="/dashboard">
+                    <Dashboard/>
+                </Route>
             </Switch>
         </div>
     </Router>
+    </Provider>
 
     , document.getElementById('root'));
 

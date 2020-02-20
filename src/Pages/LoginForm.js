@@ -1,14 +1,21 @@
 import React from 'react'
 import {useForm, useField} from 'react-final-form-hooks'
 import {Button, Form} from "react-bootstrap";
+import allActions from "../actions";
+import {useDispatch} from 'react-redux'
+import {useHistory} from "react-router";
 
 export const LoginForm = () => {
 
-    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+    const dispatch = useDispatch()
+
+    const user = {name: "Jon Leahy"}
+
+    let history = useHistory();
 
     const onSubmit = async values => {
-        await sleep(300)
-        window.alert(JSON.stringify(values, 0, 2))
+        dispatch(allActions.userActions.setUser(user))
+        history.push('/dashboard')
     }
 
     const validate = values => {
@@ -33,7 +40,7 @@ export const LoginForm = () => {
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" {...email.input} placeholder="Enter email"/>
+                    <Form.Control type="text" {...email.input} placeholder="Enter email"/>
                     {email.meta.touched && email.meta.error && (
                         <Form.Text className="text-muted">
                             {email.meta.error}

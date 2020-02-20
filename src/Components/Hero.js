@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 export default function Hero() {
     return (
         <>
-            <Col><h3>You've Arrived...</h3>
+            <Col><h3>Welcome, there's so much more...</h3>
                 <p>Lorem ipsum dolor amet irony yr in, before they sold out jean shorts ex 3 wolf moon nisi
                     pinterest. Gochujang veniam quis pork belly actually. Crucifix consequat portland shabby
                     chic.
